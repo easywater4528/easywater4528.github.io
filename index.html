@@ -346,7 +346,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;
     const awardsHtml = D.projects.filter(p=>p.certs&&p.certs.length).flatMap(p=>p.certs.map(c=>({src:c,p}))).map(a=>`<div class="award" data-lb="${a.src}" data-cap="${esc(a.p.title)} — ${esc(a.p.badge||'')}"><div class="img"><img src="${a.src}" alt="${esc(a.p.title)} 상장" loading="lazy"></div><div class="cap"><b>${esc(a.p.badge||'증빙')} · ${esc(a.p.title.split(' — ')[0])}</b><span>${esc(a.p.dateLabel)}</span></div></div>`).join('');
     homeEl.innerHTML = `
     <section class="hero" id="top"><div class="wrap hero-grid">
-      <div class="photo"><img id="profileImg" src="assets/profile.jpg" alt="${esc(P.name)} 증명사진"><div class="ph" id="photoPh" hidden><b>JS</b><small>증명사진<br>assets/profile.jpg 로 교체</small></div></div>
+      <div class="photo"><img id="profileImg" src="assets/profile_jisoo.jpg" alt="${esc(P.name)} 증명사진"><div class="ph" id="photoPh" hidden><b>JS</b><small>증명사진<br>assets/profile_jisoo.jpg 로 교체</small></div></div>
       <div>
         <div class="eyebrow">Portfolio · IoT / Wireless / Robotics</div>
         <h1 class="name">${esc(P.en)}<span class="ko">${esc(P.name)}</span></h1>
