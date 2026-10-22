@@ -1,0 +1,550 @@
+<title>Jisoo Lee Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: black stage, hot-pink signal. One accent, lots of air; a vertical "runway" timeline grouped by grade. */
+:root{
+  --bg:#0a0a0b; --bg2:#121114; --surface:#17161a; --surface2:#1f1d22; --line:#2b282d; --line2:#3a353c;
+  --fg:#f6f3f5; --fg2:#d9d2d6; --muted:#9a9098; --pink:#ff2e88; --pink2:#ff6fae; --pink-soft:#ffc2dc; --pink-ink:#2a0a19;
+  --shadow:0 20px 60px rgba(0,0,0,.45);
+  --display:"Poppins","Noto Sans KR",system-ui,sans-serif; --body:"Noto Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"Noto Sans KR",system-ui,sans-serif;
+  --r:14px; --r-sm:8px; --max:1180px;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]){
+  --bg:#fffafc; --bg2:#fff3f8; --surface:#ffffff; --surface2:#fff0f6; --line:#f1d8e4; --line2:#e5bfd1;
+  --fg:#15101a; --fg2:#3c3340; --muted:#7a6c74; --pink:#e8186f; --pink2:#ff4d97; --pink-soft:#8a0f45; --pink-ink:#fff;
+  --shadow:0 16px 50px rgba(232,24,111,.12); color-scheme:light; } }
+:root[data-theme="light"]{
+  --bg:#fffafc; --bg2:#fff3f8; --surface:#ffffff; --surface2:#fff0f6; --line:#f1d8e4; --line2:#e5bfd1;
+  --fg:#15101a; --fg2:#3c3340; --muted:#7a6c74; --pink:#e8186f; --pink2:#ff4d97; --pink-soft:#8a0f45; --pink-ink:#fff;
+  --shadow:0 16px 50px rgba(232,24,111,.12); color-scheme:light; }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4{text-wrap:balance;margin:0;line-height:1.2}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.01em}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.04em;color:var(--pink)}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{font-family:var(--display);font-weight:700;letter-spacing:.02em;font-size:17px;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.brand i{width:10px;height:10px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 4px color-mix(in srgb,var(--pink) 25%,transparent)}
+.nav-links{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{padding:8px 12px;border-radius:999px;font-size:13.5px;color:var(--fg2);white-space:nowrap}
+.nav-links a:hover{background:var(--surface2);color:var(--fg)}
+.nav-links a.grade{font-family:var(--mono);font-size:12px;border:1px solid var(--line2)}
+.nav-links a.grade b{color:var(--pink)}
+.star{flex:none;padding:7px 12px;border-radius:999px;background:var(--pink);color:var(--pink-ink);font-weight:800;font-size:13px;white-space:nowrap}
+.star:hover{background:var(--pink2)}
+.theme-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;color:var(--fg2);flex:none}
+
+/* hero */
+.hero{padding-block:56px 40px;background:
+  radial-gradient(900px 420px at 85% -10%, color-mix(in srgb,var(--pink) 22%,transparent), transparent 70%),
+  radial-gradient(500px 300px at 0% 100%, color-mix(in srgb,var(--pink) 10%,transparent), transparent 70%);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:start}
+.photo{position:relative;width:240px;aspect-ratio:3/4;border-radius:var(--r);overflow:hidden;background:var(--surface);border:1px solid var(--line2);box-shadow:var(--shadow)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:16px;color:var(--muted);background:linear-gradient(160deg,var(--surface),var(--surface2))}
+.photo .ph b{font-family:var(--display);font-weight:800;font-size:64px;color:var(--pink);line-height:1}
+.photo .ph small{font-size:12px;line-height:1.5}
+.photo::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:var(--pink)}
+.name{font-family:var(--display);font-weight:800;font-size:clamp(40px,6vw,72px);letter-spacing:-.02em;line-height:1}
+.name .ko{display:block;font-family:var(--body);font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:.3em;color:var(--pink);margin-top:10px}
+.tagline{font-size:17px;color:var(--fg2);max-width:62ch;margin-top:18px}
+.tagline:empty{display:none}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.edu-card{border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:16px 18px;position:relative;overflow:hidden}
+.edu-card.now::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--pink)}
+.edu-card .mono{color:var(--muted)}
+.edu-card h3{font-size:17px;margin-top:6px}
+.edu-card p{margin:4px 0 0;color:var(--fg2);font-size:14px}
+.contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid var(--line2);font-size:13.5px;color:var(--fg2);background:var(--surface)}
+.pill.hot{background:var(--pink);border-color:var(--pink);color:var(--pink-ink);font-weight:700}
+.pill.hot:hover{background:var(--pink2)}
+.copybtn{font-family:var(--mono);font-size:11px;color:var(--pink);padding:2px 6px;border-radius:4px;border:1px solid color-mix(in srgb,var(--pink) 40%,transparent)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.stat{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;background:var(--surface)}
+.stat b{font-family:var(--display);font-weight:800;font-size:36px;color:var(--pink);display:block;font-variant-numeric:tabular-nums;line-height:1}
+.stat span{font-size:13px;color:var(--muted)}
+.interests{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.interests span{font-size:13px;padding:5px 10px;border-radius:6px;background:var(--surface2);color:var(--fg2);border:1px solid var(--line)}
+
+/* sections */
+section.block{padding-block:56px;scroll-margin-top:72px}
+.tl-group{scroll-margin-top:72px}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:26px;flex-wrap:wrap}
+.sec-head h2{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.2vw,38px);letter-spacing:-.01em}
+.sec-head h2 small{display:block;font-family:var(--body);font-weight:500;font-size:14px;color:var(--muted);margin-top:8px;letter-spacing:0}
+.sec-head p{margin:0;color:var(--muted);max-width:48ch;font-size:14px}
+
+/* featured */
+.feat{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.fcard{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--surface);min-height:300px;display:flex;flex-direction:column;transition:transform .25s,border-color .25s}
+.fcard:hover{transform:translateY(-4px);border-color:var(--pink)}
+.fcard .img{aspect-ratio:16/10;background:var(--surface2);overflow:hidden}
+.fcard .img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.fcard:hover .img img{transform:scale(1.04)}
+.fcard .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.fcard .badge{align-self:flex-start}
+.fcard h3{font-size:15.5px;line-height:1.4;font-weight:700}
+.fcard p{margin:0;color:var(--muted);font-size:13px}
+.fcard p.blurb{color:var(--pink);font-weight:700;font-size:13px;margin-top:auto;padding-top:8px;border-top:1px dashed var(--line2)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.01em;padding:4px 9px;border-radius:6px;background:color-mix(in srgb,var(--pink) 16%,transparent);color:var(--pink);border:1px solid color-mix(in srgb,var(--pink) 40%,transparent);white-space:nowrap}
+.badge.solid{background:var(--pink);color:var(--pink-ink);border-color:var(--pink)}
+
+/* filters */
+.filters{position:sticky;top:calc(60px + env(safe-area-inset-top,0px));z-index:40;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-block:12px;margin-bottom:10px;border-bottom:1px solid var(--line)}
+.filters .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chip{padding:7px 13px;border-radius:999px;border:1px solid var(--line2);font-size:13px;color:var(--fg2);background:var(--surface);transition:.2s}
+.chip:hover{border-color:var(--pink)}
+.chip.on{background:var(--pink);border-color:var(--pink);color:var(--pink-ink);font-weight:700}
+.chip.g{font-family:var(--mono);font-size:13px}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;border:1px solid var(--line2);border-radius:999px;padding:6px 12px;background:var(--surface);min-width:220px}
+.search input{background:none;border:0;color:var(--fg);font:inherit;font-size:13.5px;outline:none;width:100%}
+.count{font-family:var(--mono);font-size:13px;color:var(--muted)}
+
+/* timeline overview: year roadmap */
+.ov{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:20px 18px 16px;margin-bottom:18px;overflow-x:auto}
+.ov-track{display:grid;grid-template-columns:repeat(4,1fr);min-width:720px;position:relative;gap:14px}
+.ov-track::before{content:"";position:absolute;left:0;right:0;top:11px;height:2px;background:linear-gradient(90deg,var(--line2),var(--pink))}
+.ov-seg{position:relative;padding-top:30px}
+.ov-seg::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:4px;transform:rotate(45deg);background:var(--pink);box-shadow:0 0 0 4px var(--surface)}
+.ov-seg h4{margin:0;font-family:var(--display);font-weight:800;font-size:16px;color:var(--fg);display:flex;gap:8px;align-items:baseline}
+.ov-seg h4 em{font-style:normal;color:var(--pink)}
+.ov-seg h4 small{font-family:var(--body);font-weight:500;font-size:12px;color:var(--muted)}
+.ov-list{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px}
+.ov-list a{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.4;color:var(--fg2);padding:6px 9px;border-radius:8px;border:1px solid var(--line);background:var(--bg2);min-width:0}
+.ov-list a:hover{border-color:var(--pink);color:var(--fg)}
+.ov-list a b{flex:none;font-size:11px;font-weight:700;color:var(--pink);background:color-mix(in srgb,var(--pink) 14%,transparent);padding:2px 6px;border-radius:4px;white-space:nowrap}
+.ov-list a span{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.ov-more{font-size:12.5px;color:var(--pink);font-weight:700;padding:6px 2px;background:none;text-align:left}
+.ov-more:hover{text-decoration:underline}
+/* grade tabs */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.tab{padding:9px 16px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);font-weight:700;font-size:14px;color:var(--fg2);display:flex;gap:8px;align-items:center}
+.tab small{font-weight:500;color:var(--muted);font-size:12px}
+.tab:hover{border-color:var(--pink)}
+.tab.on{background:var(--pink);border-color:var(--pink);color:var(--pink-ink)}
+.tab.on small{color:var(--pink-ink);opacity:.8}
+/* timeline groups as compact grids */
+.tl-group{padding:36px 0 28px}
+.tl-group + .tl-group{border-top:1px dashed var(--line2);margin-top:12px}
+.g-head{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;margin-bottom:20px}
+.g-head .big{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.4vw,40px);line-height:1;color:var(--pink);letter-spacing:-.02em}
+.g-head .big small{font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:0;color:var(--muted);margin-left:8px}
+.g-head p{margin:0;color:var(--muted);font-size:14px}
+.items{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;min-width:0}
+.item{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface);position:relative;transition:transform .2s,border-color .2s,box-shadow .2s;min-width:0}
+.item:hover{border-color:var(--pink);transform:translateY(-3px);box-shadow:var(--shadow)}
+.item .thumb{background:var(--surface2);aspect-ratio:16/9;position:relative;overflow:hidden}
+.item .thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.item .thumb .noimg{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:44px;color:color-mix(in srgb,var(--pink) 45%,var(--line2))}
+.item .thumb .badge{position:absolute;left:10px;top:10px}
+.item .meta{padding:11px 12px 12px;display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.item .date{font-family:var(--mono);font-size:12px;color:var(--pink);font-weight:700}
+.item h3{font-size:14.5px;line-height:1.4;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.item .sub{color:var(--muted);font-size:12.5px;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.item .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:6px}
+.tag{font-size:11.5px;padding:3px 8px;border-radius:5px;background:var(--surface2);border:1px solid var(--line);color:var(--fg2)}
+.item.pending{border-style:dashed}
+.empty{padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line2);border-radius:var(--r)}
+
+/* awards */
+.awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.award{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface);cursor:zoom-in;transition:.2s}
+.award:hover{border-color:var(--pink);transform:translateY(-3px)}
+.award .img{aspect-ratio:4/3;background:var(--surface2);overflow:hidden}
+.award .img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.award .cap{padding:12px 14px}
+.award .cap b{display:block;font-size:14px;line-height:1.35}
+.award .cap span{font-size:12px;color:var(--muted)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.skill{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;background:var(--surface)}
+.skill h3{font-size:14px;color:var(--pink);font-family:var(--body);letter-spacing:.02em;margin-bottom:10px;font-weight:700}
+.skill .tags{display:flex;flex-wrap:wrap;gap:6px}
+.certlist{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.certlist li{padding:12px 14px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);font-size:14px;display:flex;gap:10px;align-items:center}
+.certlist li::before{content:"✓";color:var(--pink);font-weight:700}
+
+footer{border-top:1px solid var(--line);padding-block:36px 48px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+
+/* detail */
+.detail{padding-block:28px 60px}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;margin-bottom:22px}
+.back:hover{color:var(--pink)}
+.d-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:start}
+.d-hero .img{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--surface2);aspect-ratio:16/10}
+.d-hero .img img{width:100%;height:100%;object-fit:cover}
+.d-title h1{font-size:clamp(24px,3.2vw,36px);font-weight:900;letter-spacing:-.01em;margin-top:10px;line-height:1.3}
+.d-title .sub{color:var(--fg2);margin:10px 0 0;font-size:15px}
+.d-title .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.metas{display:grid;grid-template-columns:1fr;gap:0;margin-top:18px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.metas div{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:11px 14px;border-top:1px solid var(--line);font-size:14px}
+.metas div:first-child{border-top:0}
+.metas dt{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--pink);padding-top:2px}
+.metas dd{margin:0;color:var(--fg2)}
+.summary{font-size:17.5px;line-height:1.8;color:var(--fg);margin:36px 0 0;padding-left:18px;border-left:4px solid var(--pink)}
+.d-body{display:grid;grid-template-columns:1fr;gap:34px;margin-top:40px}
+.d-sec h2{font-size:20px;font-family:var(--body);font-weight:800;display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.d-sec h2::before{content:"";width:10px;height:10px;background:var(--pink);border-radius:2px;transform:rotate(45deg)}
+.d-sec p{margin:0 0 10px;color:var(--fg2)}
+.d-sec ul{margin:0;padding-left:0;list-style:none;display:grid;gap:8px}
+.d-sec li{position:relative;padding-left:18px;color:var(--fg2)}
+.d-sec li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--pink)}
+.video{margin-top:44px}
+.video video{width:100%;border-radius:var(--r);border:1px solid var(--line);background:#000;max-height:560px}
+.cap{font-size:13px;color:var(--muted);margin-top:8px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:16px}
+.gallery figure{margin:0;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface);cursor:zoom-in;transition:.2s}
+.gallery figure:hover{border-color:var(--pink)}
+.gallery .im{aspect-ratio:4/3;background:var(--surface2);overflow:hidden}
+.gallery .im img{width:100%;height:100%;object-fit:cover}
+.gallery figcaption{padding:9px 12px;font-size:12.5px;color:var(--muted)}
+.certs-row .gallery .im{aspect-ratio:auto;max-height:420px}
+.certs-row .gallery .im img{object-fit:contain;object-position:top;height:auto;max-height:420px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px}
+.related a{border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;background:var(--surface);font-size:14px}
+.related a:hover{border-color:var(--pink)}
+.related a span{display:block;font-family:var(--mono);font-size:12.5px;color:var(--pink);margin-bottom:4px}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:50px;border-top:1px solid var(--line);padding-top:22px}
+.pn a{border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;background:var(--surface);min-width:0}
+.pn a:hover{border-color:var(--pink)}
+.pn a span{font-family:var(--mono);font-size:12.5px;color:var(--muted);display:block;margin-bottom:6px}
+.pn a b{font-size:14px;display:block;line-height:1.4}
+.pn a.next{text-align:right}
+.note{margin-top:30px;padding:14px 16px;border:1px dashed var(--line2);border-radius:var(--r-sm);color:var(--muted);font-size:13.5px}
+
+.docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:14px}
+.doc{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;background:var(--surface);font-size:14px;min-width:0}
+.doc:hover{border-color:var(--pink)}
+.doc i{flex:none;width:38px;height:44px;border-radius:6px;background:var(--pink);color:var(--pink-ink);display:grid;place-items:center;font-style:normal;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.03em}
+.doc span{min-width:0;overflow-wrap:anywhere}
+.doc small{display:block;color:var(--muted);font-size:12px}
+
+/* pdf viewer */
+.pv{position:fixed;inset:0;z-index:100;background:rgba(5,4,6,.94);display:flex;flex-direction:column}
+.pv .bar{display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));background:#141316;border-bottom:1px solid #2b282d;color:#f6f3f5;font-size:14px}
+.pv .bar b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pv .bar a,.pv .bar button{padding:7px 12px;border-radius:999px;border:1px solid #3a353c;color:#f6f3f5;font-size:13px;white-space:nowrap}
+.pv .bar .x{background:#ff2e88;color:#2a0a19;border-color:#ff2e88;font-weight:800}
+.pv .pages{flex:1;overflow:auto;padding:16px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;align-items:center;gap:14px}
+.pv canvas,.pv img.full{max-width:min(1100px,100%);height:auto;box-shadow:0 20px 60px rgba(0,0,0,.6);border-radius:4px;background:#fff}
+.pv .st{color:#c9bfc5;font-size:13px;padding:30px}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(5,4,6,.92);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-left,0px));flex-direction:column;gap:12px}
+.lb img{max-width:min(1200px,100%);max-height:84vh;object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb .c{color:#f3dce7;font-size:13px;text-align:center;max-width:70ch}
+.lb .x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px));width:40px;height:40px;border-radius:50%;background:#ff2e88;color:#2a0a19;font-weight:800;font-size:18px;display:grid;place-items:center}
+.lb .nav-b{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;font-size:22px;display:grid;place-items:center}
+.lb .nav-b.l{left:calc(10px + env(safe-area-inset-left,0px))}.lb .nav-b.r{right:calc(10px + env(safe-area-inset-right,0px))}
+
+/* responsive */
+@media (max-width:1100px){.feat{grid-template-columns:repeat(3,1fr)}.items{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:200px 1fr;gap:26px}
+  .photo{width:200px}
+  .feat{grid-template-columns:repeat(2,1fr)}
+  .items{grid-template-columns:repeat(2,1fr)}
+  .d-hero{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-block:36px 30px}
+  .hero-grid{grid-template-columns:1fr}
+  .photo{width:170px}
+  .edu,.stats{grid-template-columns:1fr 1fr}
+  .feat{grid-template-columns:1fr}
+  .items{grid-template-columns:1fr}
+  .search{min-width:0;width:100%;margin-left:0}
+  .pn{grid-template-columns:1fr}
+  .pn a.next{text-align:left}
+  .metas div{grid-template-columns:80px 1fr}
+}
+</style>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#home" data-route="home"><i></i>JISOO LEE</a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#home">Home</a>
+      <a href="#timeline">타임라인</a>
+      <a href="#awards">수상·증빙</a>
+      <a href="#skills">역량</a>
+      <a href="#g4" class="grade"><b>4</b>학년</a>
+      <a href="#g3" class="grade"><b>3</b>학년</a>
+      <a href="#g2" class="grade"><b>2</b>학년</a>
+      <a href="#g1" class="grade"><b>1</b>학년</a>
+    </nav>
+    <a class="star" href="https://github.com/easywater4528/easywater4528.github.io" target="_blank" rel="noopener" title="GitHub에서 Star 누르기">★ Star</a>
+    <button class="theme-btn" id="themeBtn" title="테마 전환" aria-label="테마 전환">◐</button>
+  </div>
+</header>
+
+<main><div id="home"></div><div id="detail" hidden></div></main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Jisoo Lee · 순천향대학교 사물인터넷학과 · 모든 수치와 성과는 지원서·결과보고서·상장 원본을 기준으로 작성</div>
+    <div class="mono" id="footMail"></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="data.js"></script>
+<script>
+(function(){
+  const D = window.PORTFOLIO; const P = D.profile; const homeEl = document.getElementById('home'); const detailEl = document.getElementById('detail'); let app = homeEl;
+  const byId = Object.fromEntries(D.projects.map(p=>[p.id,p]));
+  const NOW='2026-10-22'; const key=p=>(p.end||NOW)+'|'+(p.start||'');
+  const sorted = [...D.projects].sort((a,b)=> key(b).localeCompare(key(a)));
+  const catLabel = Object.fromEntries(D.categories.map(c=>[c.key,c.label]));
+  const gradeOf = Object.fromEntries(D.grades.map(g=>[g.key,g]));
+  const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const state = { cat:'all', grade:'all', q:'' };
+  try{ const s=JSON.parse(localStorage.getItem('pf-filter')||'{}'); Object.assign(state,s);}catch(e){}
+
+  // theme toggle
+  const root=document.documentElement; const tb=document.getElementById('themeBtn');
+  try{ const t=localStorage.getItem('pf-theme'); if(t) root.setAttribute('data-theme',t);}catch(e){}
+  tb.addEventListener('click',()=>{ const cur=root.getAttribute('data-theme'); const dark = cur? cur==='dark' : matchMedia('(prefers-color-scheme: dark)').matches; const nx=dark?'light':'dark'; root.setAttribute('data-theme',nx); try{localStorage.setItem('pf-theme',nx)}catch(e){} });
+  document.getElementById('footMail').textContent = P.email;
+
+  const thumbOf = p => p.hero || (p.images&&p.images[0]&&p.images[0].src) || (p.certs&&p.certs[0]) || null;
+  const awardsCount = D.projects.filter(p=>p.cat.includes('award')).length;
+  const stats = [
+    {n: awardsCount, l:'수상 · 장학'},
+    {n: 2, l:'국제학회 1저자 논문 (게재 1 · 투고 1)'},
+    {n: D.projects.filter(p=>p.cat.includes('project')).length, l:'프로젝트 · 공모전'},
+    {n: D.projects.filter(p=>p.cat.includes('edu')||p.cat.includes('activity')).length, l:'교육 · 멘토링 · 대외활동'},
+  ];
+  const featured = ['tesunla','ictc-npca','glocal-cebu','ai-hackathon','ces-2026'];
+  const featBlurb = { 'tesunla':'졸업작품 · 캡스톤 디자인', 'ictc-npca':'IEEE 국제학회 1저자 논문 · 영어 구두 발표', 'glocal-cebu':'필리핀 세부 글로벌 캡스톤 1등 · Excellence Award', 'ai-hackathon':'SW중심대학 대학 연합 해커톤 최우수상', 'ces-2026':'CES 2026 참관 · 라스베이거스' };
+
+  function copy(text,btn){ const ok=()=>{btn.textContent='copied';setTimeout(()=>btn.textContent='copy',1200)}; if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok).catch(()=>sel());}else sel(); function sel(){ const r=document.createRange(); r.selectNodeContents(btn.previousSibling); const s=getSelection(); s.removeAllRanges(); s.addRange(r);} }
+
+  function renderHome(){
+    const edu = D.education.map((e,i)=>`<div class="edu-card ${i===0?'now':''}"><div class="mono">${esc(e.period)}</div><h3>${esc(e.school)}</h3><p>${esc(e.dept)}</p><p class="mono" style="margin-top:8px">${esc(e.note)}</p></div>`).join('');
+    const feat = featured.map(id=>byId[id]).filter(Boolean).map(p=>`<a class="fcard" href="#p-${p.id}"><div class="img">${thumbOf(p)?`<img src="${thumbOf(p)}" alt="" loading="lazy">`:''}</div><div class="body">${p.badge?`<span class="badge">${esc(p.badge)}</span>`:''}<h3>${esc(p.title)}</h3><p>${esc(p.dateLabel)}</p><p class="blurb">${esc(featBlurb[p.id]||'')}</p></div></a>`).join('');
+    const skills = Object.entries(P.skills).map(([k,v])=>`<div class="skill"><h3>${esc(k)}</h3><div class="tags">${v.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div></div>`).join('');
+    const awardsHtml = D.projects.filter(p=>p.certs&&p.certs.length).flatMap(p=>p.certs.map(c=>({src:c,p}))).map(a=>`<div class="award" data-lb="${a.src}" data-cap="${esc(a.p.title)} — ${esc(a.p.badge||'')}"><div class="img"><img src="${a.src}" alt="${esc(a.p.title)} 상장" loading="lazy"></div><div class="cap"><b>${esc(a.p.badge||'증빙')} · ${esc(a.p.title.split(' — ')[0])}</b><span>${esc(a.p.dateLabel)}</span></div></div>`).join('');
+    homeEl.innerHTML = `
+    <section class="hero" id="top"><div class="wrap hero-grid">
+      <div class="photo"><img id="profileImg" src="assets/profile.jpg" alt="${esc(P.name)} 증명사진"><div class="ph" id="photoPh" hidden><b>JS</b><small>증명사진<br>assets/profile.jpg 로 교체</small></div></div>
+      <div>
+        <div class="eyebrow">Portfolio · IoT / Wireless / Robotics</div>
+        <h1 class="name">${esc(P.en)}<span class="ko">${esc(P.name)}</span></h1>
+        <p class="tagline">${esc(P.tagline)}</p>
+        <div class="interests">${P.interests.map(i=>`<span>${esc(i)}</span>`).join('')}</div>
+        <div class="edu">${edu}</div>
+        <div class="contact">
+          <span class="pill">✉ <span id="mailTxt">${esc(P.email)}</span><button class="copybtn" id="copyMail">copy</button></span>
+          <a class="pill hot" href="${P.github}" target="_blank" rel="noopener">GitHub · easywater4528 ↗</a>
+          <a class="pill" href="${P.githubOrg}" target="_blank" rel="noopener">졸업작품 GitHub 조직 ↗</a>
+          <a class="pill" href="#timeline">전체 활동 보기 ↓</a>
+        </div>
+        <div class="stats">${stats.map(s=>`<div class="stat"><b>${s.n}</b><span>${esc(s.l)}</span></div>`).join('')}</div>
+      </div>
+    </div></section>
+
+    <section class="block"><div class="wrap">
+      <div class="sec-head"><h2>Highlights<small>가장 먼저 봐 주셨으면 하는 다섯 가지</small></h2><p>카드를 누르면 상세 페이지로 이동합니다.</p></div>
+      <div class="feat">${feat}</div>
+    </div></section>
+
+    <section class="block" id="timeline" style="padding-top:20px"><div class="wrap">
+      <div class="sec-head"><h2>Timeline<small>학년별 핵심 성과 요약 → 탭으로 좁혀 보기</small></h2><p>총 ${D.projects.length}개 활동 · 최신순. 학년 탭, 유형 필터, 검색을 함께 쓸 수 있습니다.</p></div>
+      <div class="ov" id="overview"></div>
+      <div class="tabs" id="gradeTabs"></div>
+      <div class="filters" id="filters"></div>
+      <div id="tlBody"></div>
+    </div></section>
+
+    <section class="block" id="awards" style="padding-top:30px"><div class="wrap">
+      <div class="sec-head"><h2>Awards &amp; Certificates<small>상장 · 장학증서 · 활동인증서 스캔 원본</small></h2><p>이미지를 누르면 크게 볼 수 있습니다.</p></div>
+      <div class="awards">${awardsHtml}</div>
+    </div></section>
+
+    <section class="block" id="skills" style="padding-top:30px"><div class="wrap">
+      <div class="sec-head"><h2>Skills &amp; Certifications<small>프로젝트에서 실제로 쓴 것만</small></h2></div>
+      <div class="skills">${skills}</div>
+      <ul class="certlist">${P.certs.map(c=>`<li>${esc(c)}</li>`).join('')}</ul>
+    </div></section>`;
+    const img=document.getElementById('profileImg'), ph=document.getElementById('photoPh');
+    img.addEventListener('error',()=>{img.hidden=true;ph.hidden=false;});
+    if(img.complete && img.naturalWidth===0){img.hidden=true;ph.hidden=false;}
+    document.getElementById('copyMail').addEventListener('click',e=>copy(P.email,e.currentTarget));
+    renderOverview(); renderTabs(); renderFilters(); renderTimeline();
+  }
+
+  function renderFilters(){
+    const f=document.getElementById('filters');
+    f.innerHTML = `<div class="row">
+      ${D.categories.map(c=>`<button class="chip ${state.cat===c.key?'on':''}" data-cat="${c.key}">${esc(c.label)}</button>`).join('')}
+      <label class="search">🔍<input id="q" type="search" placeholder="키워드 검색 (예: ROS2, 최우수상)" value="${esc(state.q)}"></label>
+      <span class="count" id="cnt"></span></div>`;
+    f.querySelectorAll('[data-cat]').forEach(b=>b.addEventListener('click',()=>{state.cat=b.dataset.cat;save();renderFilters();renderTimeline();}));
+    const q=f.querySelector('#q'); q.addEventListener('input',()=>{state.q=q.value;save();renderTimeline();});
+  }
+  function renderTabs(){
+    const t=document.getElementById('gradeTabs');
+    const cnt=k=>D.projects.filter(p=>k==='all'||p.grade===k).length;
+    t.innerHTML=`<button class="tab ${state.grade==='all'?'on':''}" data-grade="all">전체 <small>${cnt('all')}</small></button>`+D.grades.map(g=>`<button class="tab ${state.grade===g.key?'on':''}" data-grade="${g.key}">${esc(g.label)} <small>${esc(g.year)} · ${cnt(g.key)}</small></button>`).join('');
+    t.querySelectorAll('[data-grade]').forEach(b=>b.addEventListener('click',()=>{state.grade=b.dataset.grade;save();renderTabs();renderTimeline();}));
+  }
+  function renderOverview(){
+    const o=document.getElementById('overview');
+    const segs=[...D.grades].reverse().map(g=>{
+      const items=sorted.filter(p=>p.grade===g.key);
+      const score=p=>(featured.includes(p.id)?4:0)+(p.cat.includes('award')?2:0)+(p.badge?1:0); const ranked=[...items].sort((a,b)=>score(b)-score(a));
+      const show=ranked.slice(0,4); const rest=items.length-show.length;
+      const li=show.map(p=>`<li><a href="#p-${p.id}">${p.badge?`<b>${esc(p.badge)}</b>`:`<b>${esc(catLabel[p.cat[0]].split(' ')[0])}</b>`}<span>${esc(p.title.split(' — ')[0])}</span></a></li>`).join('');
+      const more=rest>0?`<button class="ov-more" data-grade="${g.key}">+ ${rest}개 더 보기 →</button>`:'';
+      return `<div class="ov-seg"><h4><em>${esc(g.label)}</em><small>${esc(g.year)} · ${items.length}건</small></h4><ul class="ov-list">${li}</ul>${more}</div>`;
+    }).join('');
+    o.innerHTML=`<div class="ov-track">${segs}</div>`;
+    o.querySelectorAll('.ov-more').forEach(b=>b.addEventListener('click',()=>{state.grade=b.dataset.grade;save();renderTabs();renderTimeline();document.getElementById('gradeTabs').scrollIntoView({block:'start'});}));
+  }
+  function save(){ try{localStorage.setItem('pf-filter',JSON.stringify(state))}catch(e){} }
+
+  function matches(p){
+    if(state.cat!=='all' && !p.cat.includes(state.cat)) return false;
+    if(state.grade!=='all' && p.grade!==state.grade) return false;
+    if(state.q.trim()){ const q=state.q.trim().toLowerCase(); const hay=[p.title,p.sub,p.summary,(p.tags||[]).join(' '),p.role||'',p.team||'',p.org||'',p.badge||''].join(' ').toLowerCase(); if(!hay.includes(q)) return false; }
+    return true;
+  }
+  function renderTimeline(){
+    const body=document.getElementById('tlBody'); const list=sorted.filter(matches);
+    document.getElementById('cnt').textContent = `${list.length} / ${D.projects.length}`;
+    if(!list.length){ body.innerHTML='<div class="empty">조건에 맞는 활동이 없습니다. 필터를 바꿔 보세요.</div>'; return; }
+    body.innerHTML = D.grades.map(g=>{
+      const items=list.filter(p=>p.grade===g.key); if(!items.length) return '';
+      return `<div class="tl-group" id="${g.key}">
+        <div class="g-head"><div class="big">${esc(g.label)}<small>${esc(g.year)} · ${items.length} items</small></div><p>${esc(g.desc)}</p></div>
+        <div class="items">${items.map(card).join('')}</div></div>`;
+    }).join('');
+  }
+  function card(p){
+    const t=thumbOf(p);
+    return `<a class="item ${p.pending?'pending':''}" href="#p-${p.id}">
+      <div class="thumb">${t?`<img src="${t}" alt="" loading="lazy">`:`<div class="noimg">${esc(p.title.slice(0,1))}</div>`}${p.badge?`<span class="badge solid">${esc(p.badge)}</span>`:''}</div>
+      <div class="meta">
+        <span class="date">${esc(p.dateLabel)}</span>
+        <h3>${esc(p.title)}</h3>
+        <p class="sub">${esc(p.sub||'')}</p>
+        <div class="tags">${(p.tags||[]).slice(0,4).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+      </div></a>`;
+  }
+
+  function renderDetail(id){
+    const p=byId[id]; if(!p){ location.hash='#home'; return; }
+    const i=sorted.indexOf(p); const prev=sorted[i-1], next=sorted[i+1];
+    const metas=[['기간',p.dateLabel],['역할',p.role],['팀',p.team],['주최·소속',p.org],['성과',p.badge],['분류',p.cat.map(c=>catLabel[c]).join(' · ')]].filter(m=>m[1]);
+    const secs=(p.sections||[]).map(s=>`<div class="d-sec"><h2>${esc(s.h)}</h2>${(s.p||[]).map(x=>`<p>${esc(x)}</p>`).join('')}${s.list?`<ul>${s.list.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</div>`).join('');
+    const gal=(p.images||[]).map((im,k)=>`<figure data-lb="${im.src}" data-cap="${esc(im.cap||'')}" data-gi="${k}"><div class="im"><img src="${im.src}" alt="${esc(im.cap||'')}" loading="lazy"></div><figcaption>${esc(im.cap||'')}</figcaption></figure>`).join('');
+    const certs=(p.certs||[]).map(c=>`<figure data-lb="${c}" data-cap="${esc(p.title)}"><div class="im"><img src="${c}" alt="상장" loading="lazy"></div><figcaption>${esc(p.badge||'증빙')} · 원본 스캔</figcaption></figure>`).join('');
+    const links=(p.links||[]).map(l=>`<a class="pill hot" href="${l.href}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join('');
+    const rel=(p.related||[]).map(r=>byId[r]).filter(Boolean).map(r=>`<a href="#p-${r.id}"><span>${esc(r.dateLabel)}</span>${esc(r.title)}</a>`).join('');
+    const hero=thumbOf(p);
+    const docs=(p.docs||[]).map(d=>{const ext=d.href.split('.').pop().toUpperCase();return `<a class="doc" href="${d.href}" target="_blank" rel="noopener"><i>${ext}</i><span>${esc(d.label)}<small>클릭하면 페이지 안에서 바로 열립니다</small></span></a>`;}).join('');
+    detailEl.innerHTML=`<section class="detail"><div class="wrap">
+      <a class="back" href="#timeline" id="backBtn">← 타임라인으로</a>
+      <div class="d-hero">
+        ${hero?`<div class="img" data-lb="${hero}" data-cap="${esc(p.title)}" style="cursor:zoom-in"><img src="${hero}" alt=""></div>`:''}
+        <div class="d-title">
+          <div class="eyebrow">${esc(gradeOf[p.grade].label)} · ${esc(gradeOf[p.grade].year)}${p.badge?` · ${esc(p.badge)}`:''}</div>
+          <h1>${esc(p.title)}</h1>
+          <p class="sub">${esc(p.sub||'')}</p>
+          <div class="tags">${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+          <dl class="metas">${metas.map(m=>`<div><dt>${esc(m[0])}</dt><dd>${esc(m[1])}</dd></div>`).join('')}</dl>
+        </div>
+      </div>
+      <p class="summary">${esc(p.summary)}</p>
+      <div class="d-body">${secs}</div>
+      ${p.video?`<div class="video"><video src="${p.video.src}" controls preload="metadata" playsinline></video><div class="cap">${esc(p.video.cap||'')}</div></div>`:''}
+      ${gal?`<div class="d-sec" style="margin-top:44px"><h2>사진 · 자료</h2><div class="gallery">${gal}</div></div>`:''}
+      ${certs?`<div class="d-sec certs-row" style="margin-top:44px"><h2>상장 · 증빙</h2><div class="gallery">${certs}</div></div>`:''}
+      ${docs?`<div class="d-sec" style="margin-top:44px"><h2>원본 자료</h2><div class="docs">${docs}</div></div>`:''}
+      ${links?`<div class="d-sec" style="margin-top:44px"><h2>링크</h2><div class="links">${links}</div></div>`:''}
+      ${rel?`<div class="d-sec" style="margin-top:44px"><h2>연관 활동</h2><div class="related">${rel}</div></div>`:''}
+      ${p.pending?`<div class="note">진행 중인 활동입니다. 종료 후 세부 내용과 사진을 추가할 예정입니다.</div>`:''}
+      <div class="pn">${prev?`<a href="#p-${prev.id}"><span>← 더 최근</span><b>${esc(prev.title)}</b></a>`:'<span></span>'}${next?`<a class="next" href="#p-${next.id}"><span>이전 활동 →</span><b>${esc(next.title)}</b></a>`:''}</div>
+    </div></section>`;
+    document.title = p.title + ' · Jisoo Lee';
+    const bb=document.getElementById('backBtn'); bb.addEventListener('click',e=>{ if(history.length>1){ e.preventDefault(); history.back(); } });
+  }
+
+  // lightbox
+  let lbList=[], lbIdx=0;
+  function openLb(src,cap,list,idx){ lbList=list||[{src,cap}]; lbIdx=idx||0; draw(); }
+  function draw(){ let el=document.getElementById('lb'); if(!el){ el=document.createElement('div'); el.className='lb'; el.id='lb'; el.innerHTML='<button class="x" aria-label="닫기">×</button><button class="nav-b l" aria-label="이전">‹</button><img alt=""><div class="c"></div><button class="nav-b r" aria-label="다음">›</button>'; document.body.appendChild(el);
+      el.addEventListener('click',e=>{ if(e.target===el||e.target.classList.contains('x')) el.remove(); });
+      el.querySelector('.l').addEventListener('click',()=>{lbIdx=(lbIdx-1+lbList.length)%lbList.length;draw();});
+      el.querySelector('.r').addEventListener('click',()=>{lbIdx=(lbIdx+1)%lbList.length;draw();}); }
+    const it=lbList[lbIdx]; el.querySelector('img').src=it.src; el.querySelector('.c').textContent=(lbList.length>1?`${lbIdx+1} / ${lbList.length} · `:'')+(it.cap||'');
+    el.querySelector('.l').hidden=el.querySelector('.r').hidden=lbList.length<2; }
+  document.addEventListener('keydown',e=>{ const pv=document.getElementById('pv'); if(pv&&e.key==='Escape'){pv.remove();return;} const el=document.getElementById('lb'); if(!el) return; if(e.key==='Escape') el.remove(); if(e.key==='ArrowLeft'){lbIdx=(lbIdx-1+lbList.length)%lbList.length;draw();} if(e.key==='ArrowRight'){lbIdx=(lbIdx+1)%lbList.length;draw();} });
+  document.querySelector('main').addEventListener('click',e=>{ const t=e.target.closest('[data-lb]'); if(!t) return; e.preventDefault();
+    const gal=t.closest('.gallery'); if(gal){ const figs=[...gal.querySelectorAll('[data-lb]')]; openLb(null,null,figs.map(f=>({src:f.dataset.lb,cap:f.dataset.cap})),figs.indexOf(t)); }
+    else if(t.closest('.awards')){ const figs=[...t.closest('.awards').querySelectorAll('[data-lb]')]; openLb(null,null,figs.map(f=>({src:f.dataset.lb,cap:f.dataset.cap})),figs.indexOf(t)); }
+    else openLb(t.dataset.lb,t.dataset.cap); });
+  document.querySelector('main').addEventListener('click',e=>{ const a=e.target.closest('a.doc'); if(!a) return; e.preventDefault(); openDoc(a.getAttribute('href'), a.querySelector('span').firstChild.textContent); });
+  async function openDoc(href,label){
+    let el=document.getElementById('pv'); if(el) el.remove();
+    el=document.createElement('div'); el.className='pv'; el.id='pv';
+    el.innerHTML=`<div class="bar"><b>${esc(label)}</b><a href="${href}" target="_blank" rel="noopener">새 탭 ↗</a><button class="x" aria-label="닫기">닫기 ×</button></div><div class="pages"><div class="st">불러오는 중…</div></div>`;
+    document.body.appendChild(el); el.querySelector('.x').addEventListener('click',()=>el.remove());
+    const box=el.querySelector('.pages');
+    if(/\.(jpe?g|png)$/i.test(href)){ box.innerHTML=`<img class="full" src="${href}" alt="">`; return; }
+    try{
+      if(!window.pdfjsLib) throw new Error('viewer');
+      pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      const pdf=await pdfjsLib.getDocument(href).promise; box.innerHTML='';
+      const maxW=Math.min(1100, box.clientWidth-8); const dpr=Math.min(2,window.devicePixelRatio||1);
+      for(let i=1;i<=pdf.numPages;i++){ const page=await pdf.getPage(i); const v0=page.getViewport({scale:1}); const scale=maxW/v0.width; const vp=page.getViewport({scale:scale*dpr});
+        const c=document.createElement('canvas'); c.width=vp.width; c.height=vp.height; c.style.width=(vp.width/dpr)+'px'; box.appendChild(c);
+        await page.render({canvasContext:c.getContext('2d'),viewport:vp}).promise; if(!document.getElementById('pv')) return; }
+      const end=document.createElement('div'); end.className='st'; end.textContent=`총 ${pdf.numPages}페이지`; box.appendChild(end);
+    }catch(err){ box.innerHTML=`<div class="st">이 화면에서 바로 열 수 없어 새 탭으로 열어 주세요. (${esc(err.message||'')})</div>`; }
+  }
+
+
+  // router — home stays rendered; detail view swaps in, and going back restores the home scroll position
+  let homeRendered=false, homeScroll=0, inDetail=false, navIntent=false;
+  document.getElementById('navlinks').addEventListener('click',e=>{navIntent=true; const a=e.target.closest('a.grade'); if(a){ const k=a.getAttribute('href').slice(1); if(state.grade!=='all' && state.grade!==k){ state.grade='all'; save(); if(homeRendered){renderTabs();renderTimeline();} } }}); document.querySelector('.brand').addEventListener('click',()=>{navIntent=true;});
+  function showHome(){ if(inDetail){ detailEl.hidden=true; homeEl.hidden=false; inDetail=false; detailEl.innerHTML=''; } }
+  function route(){
+    const h=(location.hash||'').slice(1);
+    if(h.startsWith('p-')){
+      if(!inDetail) homeScroll=window.scrollY;
+      if(!homeRendered){ renderHome(); homeRendered=true; }
+      renderDetail(h.slice(2)); homeEl.hidden=true; detailEl.hidden=false; inDetail=true; window.scrollTo({top:0,behavior:'auto'}); requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'auto'})); return;
+    }
+    const wasDetail=inDetail; showHome();
+    if(!homeRendered){ renderHome(); homeRendered=true; }
+    document.title='Jisoo Lee Portfolio';
+    const intent=navIntent; navIntent=false;
+    if(wasDetail && !intent){ const y=homeScroll; requestAnimationFrame(()=>window.scrollTo({top:y,behavior:'auto'})); return; }
+    if(h && h!=='home' && h!=='top'){ const el=document.getElementById(h); if(el){ setTimeout(()=>el.scrollIntoView({block:'start'}),30); return; } }
+    if(h==='home'||h==='top') window.scrollTo({top:0});
+  }
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  window.addEventListener('hashchange',route); route();
+})();
+</script>
